@@ -1,0 +1,43 @@
+{
+    "name": "Go Development",
+    "image": "mcr.microsoft.com/devcontainers/go:1-1.22-bullseye",
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/go:1": {
+            "version": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "go.toolsManagement.checkForUpdates": "local",
+                "go.useLanguageServer": true,
+                "go.gopath": "/go",
+                "go.lintOnSave": "package",
+                "go.vetOnSave": "package",
+                "go.formatTool": "goimports",
+                "go.buildOnSave": "workspace",
+                "go.testOnSave": false,
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": true
+                },
+                "[go]": {
+                    "editor.defaultFormatter": "golang.go"
+                }
+            },
+            "extensions": [
+                "golang.go",
+                "GitHub.copilot",
+                "GitHub.vscode-github-actions",
+                "GitHub.vscode-pull-request-github",
+                "ms-azuretools.vscode-docker",
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+    "postCreateCommand": "go mod download",
+    "remoteUser": "vscode"
+}

@@ -1,0 +1,36 @@
+name: "Question Template"
+description: "Ask a question or start a discussion"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to ask a question or start a discussion!
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What would you like to know about this project?
+      placeholder: Ask your question here
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What type of question is this?
+      options:
+        - Usage
+        - Development
+        - Installation
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

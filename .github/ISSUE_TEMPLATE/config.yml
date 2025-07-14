@@ -1,0 +1,7 @@
+contact_links:
+  - name: Question or Discussion
+    url: https://github.com/amenocal/open-source-demo/discussions
+    about: Please ask and answer questions here
+  - name: Security Vulnerability
+    url: https://github.com/amenocal/open-source-demo/security/policy
+    about: Please report security vulnerabilities as directed by our security policy

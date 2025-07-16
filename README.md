@@ -4,7 +4,7 @@ A GitHub CLI extension that helps you retrieve license information from open sou
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Release](https://img.shields.io/github/v/release/amenocal/open-source-demo)](https://github.com/amenocal/open-source-demo/releases)
-[![CI Status](https://img.shields.io/github/workflow/status/amenocal/open-source-demo/CI)](https://github.com/amenocal/open-source-demo/actions)
+[![CI Status](https://github.com/amenocal/open-source-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/amenocal/open-source-demo/actions/workflows/ci.yml)
 
 ## 🚀 About
 

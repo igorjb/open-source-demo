@@ -1,5 +1,7 @@
 name: "Question Template"
 description: "Ask a question or start a discussion"
+title: "[QUESTION]: "
+labels: ["question"]
 body:
   - type: markdown
     attributes:

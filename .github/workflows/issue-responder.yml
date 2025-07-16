@@ -1,0 +1,81 @@
+name: Issue Triage Workflow
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  respond-to-question:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'question')
+    
+    steps:
+    - name: Add comment to question issue
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          const welcomeMessage = `Hi @${context.payload.issue.user.login}! 👋
+
+          I see that you have a question for us. Please make sure that you have checked out our [FAQ](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/FAQ.md) first, as your question might already be answered there.
+
+          If you can't find what you're looking for in the FAQ, don't worry - we'll get back to you as soon as we can! 
+
+          Thank you for your patience and for being part of our community! 🙌`;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: welcomeMessage
+          });
+
+  respond-to-bug:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'bug')
+    
+    steps:
+    - name: Add comment to bug issue
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          const bugMessage = `Hi @${context.payload.issue.user.login}! 👋
+
+          Thank you for reporting this bug! 🐛 We really appreciate you taking the time to help us improve the project.
+
+          We've received your bug report and will look into it as soon as possible. Our team will investigate and get back to you with updates.
+
+          Thank you for your patience and for helping make our project better! 🙌`;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: bugMessage
+          });
+
+  respond-to-enhancement:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'enhancement')
+    
+    steps:
+    - name: Add comment to enhancement issue
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          const enhancementMessage = `Hi @${context.payload.issue.user.login}! 👋
+
+          Thank you for this enhancement suggestion! ✨ We love hearing ideas from our community on how to make the project better.
+
+          We've received your enhancement request and will review it as soon as possible. We'll evaluate the feasibility and get back to you with our thoughts.
+
+          Thank you for your contribution and for helping us grow! 🙌`;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: enhancementMessage
+          });

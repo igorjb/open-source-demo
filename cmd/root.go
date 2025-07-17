@@ -1,6 +1,5 @@
 /*
 Copyright © 2025 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -10,18 +9,20 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
-
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "open-source-demo",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Short: "A CLI tool to retrieve open source license information from GitHub repositories",
+	Long: `Open Source Demo is a CLI application that demonstrates how to retrieve
+license information from GitHub repositories using the GitHub API.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+This tool allows you to query any public GitHub repository and retrieve
+detailed information about its license, including the license type, SPDX ID,
+and other relevant details.
+
+Example usage:
+  open-source-demo getLicense --repo amenocal/gh-pin-actions
+  open-source-demo getLicense --repo facebook/react`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -47,5 +48,3 @@ func init() {
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
-
-

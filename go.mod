@@ -1,6 +1,6 @@
 module open-source-demo
 
-go 1.21.6
+go 1.23
 
 require (
 	github.com/google/go-github/v28 v28.1.1
